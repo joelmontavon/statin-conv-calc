@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <title>Statin Conversion Calculator</title>
+  		<link rel="stylesheet" href="https://unpkg.com/element-plus/dist/index.css" />
+  		<script src="https://unpkg.com/vue@next"></script>
+  		<script src="https://unpkg.com/element-plus"></script>
+      <link rel="stylesheet" href="style/style.css" />
+    </head>
+    <body>
+		    <div id="app">
+          <div>
+            <el-row>
+              <el-col>
+                <el-card>
+                  <template #header>
+                    <div class="card-header">
+                      <span>Options</span>
+                    </div>
+                  </template>
+                  <el-select v-model="drugSelected" @change="drugChanged">
+                    <el-option v-for="item in drugOptions" :key="item.key" :label="item.label" :value="item.value"></el-option>
+                  </el-select>
+                  <el-select v-model="strengthSelected" @change="strengthChanged">
+                    <el-option v-for="item in strengthOptions" :key="item" :label="item" :value="item"></el-option>
+                  </el-select><span> mg</span>
+                </el-card>
+              </el-col>
+            </el-row>
+            <el-row>
+              <el-card>
+                <template #header>
+                  <div class="card-header">
+                    <span>Statins</span>
+                  </div>
+                </template>
+                <el-col :sm="8" :lg="4" v-for="item in results">
+                  <el-result :title="item.drug" :sub-title="item.brand">
+                    <template #icon>
+                      <el-image
+                        :src="item.img"
+                      v-if="item.img"></el-image>
+                    </template>
+                    <template #extra>
+                      <span>{{item.strength}}</span>
+                    </template>
+                  </el-result>
+                </el-col>
+              </el-card>
+            </el-row>
+          </div>
+        </div>
+        <script src="js/helpers.js"></script>
+        <script src="js/state.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>
