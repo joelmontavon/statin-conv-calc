@@ -35,7 +35,7 @@
                     <span>Statins</span>
                   </div>
                 </template>
-                <el-col :span="4" v-for="item in results">
+                <el-col :sm="8" :lg="4" v-for="item in results">
                   <el-result :title="item.drug" :sub-title="item.brand">
                     <template #icon>
                       <el-image
