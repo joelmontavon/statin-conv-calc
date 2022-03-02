@@ -38,7 +38,7 @@
                 <el-col :sm="8" :lg="4" v-for="item in results">
                   <el-result :title="item.drug" :sub-title="item.brand">
                     <template #icon>
-                      <el-image :src="item.img" v-if="item.img" style="max-width: 175px;"></el-image>
+                      <el-image :src="item.img" v-if="item.img" style="max-width: 150px;"></el-image>
                     </template>
                     <template #extra>
                       <span style="font-size: 20px;">{{item.strength}}</span>
